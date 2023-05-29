@@ -2,16 +2,14 @@ import java.util.Base64;
 
 public class mae extends usuario{
     protected String cpf;
-    protected String localizacao;
     protected static int nivel = 1;
     
     public mae(String nome, String cpf, String email, String senha, String localizacao){
-        super(nome, email, senha);
-        this.cpf = cpf;
-        this.localizacao = localizacao;    
+        super(nome, email, senha, localizacao);
+        this.cpf = cpf;   
     }
     
-    public int loginMae(String email, String senha, int nivel){
+    public int login(String email, String senha, int nivel){
         try{
             if(nivel == 0){
                 if (this.senha.equals(Base64.getEncoder().encodeToString(senha.getBytes()))){
