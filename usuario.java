@@ -1,21 +1,23 @@
 import java.util.Base64;
 import java.util.Scanner;
 
-public class usuario {
+abstract class usuario {
     protected static int count = 0;
     protected String nome;
     protected int id;
     protected String email;
     protected String senha;
+    protected String localizacao;
     
-    public usuario(String nome, String email, String senha){
+    public usuario(String nome, String email, String senha, String localizacao){
         this.nome = nome;
         this.id = ++count;
         this.email = email;
         this.senha = Base64.getEncoder().encodeToString(senha.getBytes());
+        this.localizacao = localizacao;
     }
     
-    public int loginUsuario(String email, String senha){
+    public int login(String email, String senha){
         if (this.senha.equals(Base64.getEncoder().encodeToString(senha.getBytes()))){
             System.out.println("Usuário logado com sucesso! Bem-vindo(a), " + this.nome);
             return this.id;
@@ -41,5 +43,4 @@ public class usuario {
         }
     }
 }
-
 
