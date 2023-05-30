@@ -8,6 +8,7 @@ abstract class usuario {
     protected String email;
     protected String senha;
     protected String localizacao;
+    protected int nivel;
     
     public usuario(String nome, String email, String senha, String localizacao){
         this.nome = nome;
@@ -18,17 +19,21 @@ abstract class usuario {
     }
     
     public int login(String email, String senha){
-        if (this.senha.equals(Base64.getEncoder().encodeToString(senha.getBytes()))){
-            System.out.println("Usuário logado com sucesso! Bem-vindo(a), " + this.nome);
-            return this.id;
-        }
-        else{
-            System.out.println("E-mail ou senha incorretos!");
-            return 0;
+        try{
+            if (this.senha.equals(Base64.getEncoder().encodeToString(senha.getBytes()))){
+                System.out.println("Usuário logado com sucesso! Bem-vindo(a), " + this.nome);
+                return this.nivel; // não sei se deve retornar o nível (pra saber as permissões mais facil) ou se passa o id (no sistema completo seria algum id pra identificar q foi logado)
+            }
+            else{
+                System.out.println("E-mail ou senha incorretos!");
+                return 0;
+            }
+        }catch(Exception e){
+            return 404;
         }
     }
     
-    public int logoutUsuario(){
+    public int logout(){
         return 0;
     }
     
@@ -40,6 +45,15 @@ abstract class usuario {
         else{
             System.out.println("Senha incorreta! O usuário não foi deletado.");
             return 0;
+        }
+    }
+    
+    public int verificacao(String email, String senha){
+        if(this.senha.equals(Base64.getEncoder().encodeToString(senha.getBytes())) && this.email.equals(email)){
+            return this.nivel;
+        }
+        else{
+            return 502;
         }
     }
 }
