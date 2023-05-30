@@ -1,10 +1,12 @@
 import java.util.Base64;
 
 public class bancoLeite extends usuario{
+    protected double quantidadeLeite;
     protected static int nivel = 2;
     
-    public bancoLeite(String nome, String email, String senha, String localizacao){
+    public bancoLeite(String nome, String email, String senha, String localizacao, double quantLeite){
         super(nome, email, senha, localizacao);
+        this.quantidadeLeite = quantLeite;
     }
     
     public int login(String email, String senha, int nivel){
