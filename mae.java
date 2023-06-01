@@ -1,5 +1,3 @@
-import java.util.Base64;
-
 public class mae extends usuario{
     protected String cpf;
     protected static int nivel = 2;

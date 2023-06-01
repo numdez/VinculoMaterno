@@ -1,5 +1,4 @@
 import java.util.Base64;
-import java.util.Scanner;
 
 abstract class usuario {
     protected static int count = 0;
