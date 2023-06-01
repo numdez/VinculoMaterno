@@ -51,7 +51,7 @@ public class VinculoMaterno {
                 }
             }
             
-            System.out.println("1 - Cadastro \n2 - Login \n3 - Apagar conta \n4 - Localizar banco \n5 - Informações gerais");
+            System.out.println("1 - Cadastro \n2 - Login \n3 - Apagar conta \n4 - Localizar banco \n5 - Informações gerais\n6 - Sair");
             //integrar a opção de localizar banco de leite e informações gerais sobre amamentação (e opcionalmente coisas básicas de gravidez)
             escolhaMenu = entrada.nextInt();
             entrada.nextLine();
@@ -150,12 +150,25 @@ public class VinculoMaterno {
                         if(mae.localizacao == banco.localizacao){
                             System.out.println("O banco mais próximo de você encontra-se em " + banco.localizacao + "!");
                         }
+                        else{
+                            System.out.println("Não há bancos de leite próximos");
+                        }
                     }
                     
                 }
                 case 5 -> {
                     System.out.println("Esta função ainda não foi propriamente implementada, por favor seja paciente.");
-                    // fazer uma função pra pegar algumas noticías recentes automaticamente
+                    // no sistema de verdade seria mais fácil implementar isso com api ou web scraping, mas em java é complicaddo
+                }
+                case 6 -> {
+                    logado = 0;
+                    if(logado > 0){
+                        System.out.println("Usuário deslogado com sucesso!");
+                    }
+                    else{
+                        System.out.println("Ocorreu um erro inesperado");
+                    }
+                    
                 }
             }
           
