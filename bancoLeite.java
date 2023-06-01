@@ -1,5 +1,3 @@
-import java.util.Base64;
-
 public class bancoLeite extends usuario{
     protected double quantidadeLeite;
     protected static int nivel = 3;
