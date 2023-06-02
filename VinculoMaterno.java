@@ -2,8 +2,9 @@ import java.util.Base64;
 import java.util.Scanner;
 
 public class VinculoMaterno {
+    /*
     public static void main(String[] args) {
-        int logado = 0;
+        int logado = 1;
         double userLeite;
         String userNome, userCPF, userEmail, userSenha, userBairro;
         try (Scanner entrada = new Scanner(System.in)) {
@@ -11,59 +12,10 @@ public class VinculoMaterno {
             bancoLeite banco = null;
             // de preferencia transformar o menu em uma função chamável pra eliminar redundância
             do{ 
-                int escolhaMenu, escolhaSubMenu;
-                if(logado == 0){ //checar se a variavel foi iniciada e pular a parte inicial
-                    System.out.println("Escolha o tipo de cadastro:");
-                    System.out.println("1 - Mãe \n2 - Banco de Leite \n3 - Cancelar");
-                    escolhaMenu = entrada.nextInt();
-                    entrada.nextLine();
-                    switch (escolhaMenu) {
-                        case 1:
-                            System.out.println("Insira seu nome: ");
-                            userNome = entrada.nextLine();
-                            System.out.println("Insira seu cpf: ");
-                            userCPF = entrada.nextLine();
-                            System.out.println("Insira seu email: ");
-                            userEmail = entrada.nextLine();
-                            System.out.println("Crie uma senha: ");
-                            userSenha = Base64.getEncoder().encodeToString(entrada.nextLine().getBytes());
-                            System.out.println("Insira seu bairro: ");
-                            userBairro = entrada.nextLine();
-                            mae = new mae(userNome, userCPF, userEmail, userSenha, userBairro);
-                            logado = 1;
-                            escolhaMenu = 0;
-                            break;
-
-                        case 2:
-                            System.out.println("Insira o nome do banco: ");
-                            userNome = entrada.nextLine();
-                            System.out.println("Insira o email do banco: ");
-                            userEmail = entrada.nextLine();
-                            System.out.println("Crie uma senha: ");
-                            userSenha = Base64.getEncoder().encodeToString(entrada.nextLine().getBytes());
-                            System.out.println("Insira a localização: ");
-                            userBairro = entrada.nextLine();
-                            System.out.println("Insira a quantidade de leite (em litros) disponível no banco:");
-                            userLeite = entrada.nextDouble();
-                            userBairro = entrada.nextLine();
-                            banco = new bancoLeite(userNome, userEmail, userSenha, userBairro, userLeite);
-                            logado = 1;
-                            escolhaMenu = 0;
-                            break;
-
-                        case 3:
-                            logado = 1;
-                            escolhaMenu = 0;
-                            break;
-                        
-                        default:
-                            System.out.println("Escolha uma opção válida!");
-                    }
-                    logado = 1;
-                }
-                
+                int escolhaMenu, escolhaSubMenu;                
                 menu(logado);
                 //integrar a opção de localizar banco de leite e informações gerais sobre amamentação (e opcionalmente coisas básicas de gravidez)
+                entrada.nextLine();
                 escolhaMenu = entrada.nextInt();
                 entrada.nextLine();
                 escolhaMenu = escolhaCorreta(escolhaMenu, logado);
@@ -86,7 +38,6 @@ public class VinculoMaterno {
                                     System.out.println("Insira seu bairro: ");
                                     userBairro = entrada.nextLine();
                                     mae = new mae(userNome, userCPF, userEmail, userSenha, userBairro);
-                                    logado = 1;
                                     escolhaMenu = 0;
                                     break;
 
@@ -103,12 +54,10 @@ public class VinculoMaterno {
                                     userLeite = entrada.nextDouble();
                                     userBairro = entrada.nextLine();
                                     banco = new bancoLeite(userNome, userEmail, userSenha, userBairro, userLeite);
-                                    logado = 1;
                                     escolhaMenu = 0;
                                     break;
                                     
                                 case 3:
-                                    logado = 1;
                                     break;
                                     
                                 default:
@@ -125,12 +74,10 @@ public class VinculoMaterno {
                             userEmail = entrada.nextLine();
                             System.out.println("Insira sua senha:");
                             userSenha = Base64.getEncoder().encodeToString(entrada.nextLine().getBytes());
-                            logado = mae.login(userEmail, userSenha);
-                            if(logado == 404){
-                                logado = banco.login(userEmail, userSenha);
-                                if(logado == 404){
-                                    System.out.println("O usuário não foi encontrado!");
-                                }
+                            try{
+                                logado = mae.login(userEmail, userSenha);
+                            }catch(Exception e){
+                                System.out.println("O usuário não foi encontrado!");
                             }
                         }
                         else{
@@ -219,14 +166,14 @@ public class VinculoMaterno {
         else if(nivel == 3){
             System.out.println("1 - Cadastro \n2 - Login \n3 - Informações gerais \n4 - Sair \n5 - Apagar conta");
         }
-        else if(nivel == 1){
+        else if(nivel <= 1){
             System.out.println("1 - Cadastro \n2 - Login \n3 - Informações gerais \n4 - Localizar banco");
         }
         
     }
 
     public static int escolhaCorreta(int escolha, int nivel){
-        if(nivel == 1){
+        if(nivel <= 1){
             if(escolha > 4){
                 return 0;
             }
@@ -245,5 +192,5 @@ public class VinculoMaterno {
         return nivel;
     }
     
-    
+    */
 }
