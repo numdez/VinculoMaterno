@@ -55,6 +55,7 @@ public class VinculoMaterno {
                     default:
                         System.out.println("Escolha uma opção válida!");
                 }
+                logado = 1;
             }
             
             menu(logado);
