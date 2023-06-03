@@ -66,7 +66,6 @@ public class MaternoVinculo {
             mae.deletaUsuario(userSenha);
             userSenha = "";
             logado = 1;
-            break;
 
         }while(true);
     }
