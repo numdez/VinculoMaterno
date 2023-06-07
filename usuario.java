@@ -33,7 +33,7 @@ abstract class usuario {
     }
     
     public int logout(){
-        return 0;
+        return 1;
     }
     
     public int deletaUsuario(String senha){
