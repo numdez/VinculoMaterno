@@ -60,10 +60,16 @@ public class MaternoVinculo {
             userSenha = Base64.getEncoder().encodeToString(entrada.nextLine().getBytes()); 
             try{
                 logado = mae.verificacao(userEmail, userSenha);
+                if(logado == 2){
+                    mae.deletaUsuario(userSenha);
+                }
+                else{
+                    System.out.println("Não foi possível deletar o usuário\n");   
+                }
             }catch(Exception e){
                 System.out.println("Usuário não foi encontrado");
             }
-            mae.deletaUsuario(userSenha);
+           
             userSenha = "";
             logado = 1;
 
