@@ -61,7 +61,8 @@ public class MaternoVinculo {
             try{
                 logado = mae.verificacao(userEmail, userSenha);
                 if(logado == 2){
-                    mae.deletaUsuario(userSenha);
+                    logado = mae.deletaUsuario(userSenha);
+                    mae = null;
                 }
                 else{
                     System.out.println("Não foi possível deletar o usuário\n");   
