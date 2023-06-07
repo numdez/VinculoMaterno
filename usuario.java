@@ -37,7 +37,7 @@ abstract class usuario {
     }
     
     public int deletaUsuario(String senha){
-        if(this.senha.equals(Base64.getEncoder().encodeToString(senha.getBytes()))){
+        if(this.senha.equals(senha){
             System.out.println("Senha correta! Deletando usuário...");
             return 1;
         }
@@ -48,7 +48,7 @@ abstract class usuario {
     }
     
     public int verificacao(String email, String senha){
-        if(this.senha.equals(Base64.getEncoder().encodeToString(senha.getBytes())) && this.email.equals(email)){
+        if(this.senha.equals(senha) && this.email.equals(email)){
             return this.nivel;
         }
         else{
